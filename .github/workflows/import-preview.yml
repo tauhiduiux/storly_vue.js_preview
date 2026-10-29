@@ -1,0 +1,27 @@
+name: Prepare Vue preview
+on:
+  push:
+    paths: ['.github/workflows/import-preview.yml']
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Copy exact preview source and update labels
+        run: |
+          curl --fail --location https://codeload.github.com/tauhiduiux/storly_nextjs_preview/tar.gz/c88583c394ef1911c9158e6f762e15e723018b87 -o /tmp/preview-source.tar.gz
+          tar -xzf /tmp/preview-source.tar.gz --strip-components=1
+          python3 - <<'PY'
+          from pathlib import Path
+          for path in Path('src').glob('*.html'):
+              path.write_text(path.read_text().replace('Next.js', 'Vue.js'))
+          PY
+          npm run build
+          git rm .github/workflows/import-preview.yml
+          git add .
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish original landing page with Vue.js Template text"
+          git push

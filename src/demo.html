@@ -1,0 +1,2403 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Storly — Multipurpose eCommerce Vue.js Template</title>
+<meta name="description" content="Storly is a multipurpose eCommerce Vue.js template for online stores and marketplaces. Explore flexible layouts and a polished business presentation.">
+  <link rel="icon" href="favicon.png"><link href="style.css" rel="stylesheet"><link rel="stylesheet" href="scroll-motion.css">
+<link rel="stylesheet" href="hero-motion.css">
+</head>
+  <body class="!pb-0">
+    <header
+  x-data="{ mobileMenuOpen: false }"
+  class="fixed top-0 z-50 w-full bg-white py-4 shadow-sm"
+>
+  <div class="custom-container">
+    <div class="flex items-center justify-between">
+      <a href="demo.html" class="h-12 w-40 lg:h-18 lg:w-64">
+        <span class="storly-wordmark">Storly<span>.</span></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:block">
+        <ul class="flex gap-15">
+          <li>
+            <a
+              href="#demo"
+              class="text-gray-primary hover:text-primary-main py-5 text-base font-medium transition-all duration-300"
+              >Demo</a
+            >
+          </li>
+          <li>
+            <a
+              href="#inner-pages"
+              class="text-gray-primary hover:text-primary-main py-5 text-base font-medium transition-all duration-300"
+              >Inner Pages</a
+            >
+          </li>
+          <li>
+            <a
+              href="#features"
+              class="text-gray-primary hover:text-primary-main py-5 text-base font-medium transition-all duration-300"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a
+              href="#faq"
+              class="text-gray-primary hover:text-primary-main py-5 text-base font-medium transition-all duration-300"
+              >FAQ</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="hidden lg:block">
+         <a
+          href="https://themeforest.net/user/createuiux"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary-main bg-success-light hover:bg-opacity-90 flex items-center justify-center rounded-lg px-5 py-3 text-base font-medium transition"
+        >
+
+          Buy Now
+          <svg
+            class="ml-2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+          >
+            <path
+              d="M15.5833 6.41675L5.5 16.5001"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.0834 5.49997H15.8334C16.1476 5.49997 16.3048 5.49997 16.4024 5.5976C16.5 5.69523 16.5 5.85237 16.5 6.16664V11.9166"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        @click="mobileMenuOpen = true"
+        class="text-gray-primary p-2 lg:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-7 w-7"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    x-show="mobileMenuOpen"
+    style="display: none"
+    class="fixed inset-0 z-[100] bg-black/50"
+    @click="mobileMenuOpen = false"
+    x-transition.opacity
+  ></div>
+
+  <!-- Mobile Menu Drawer -->
+  <div
+    x-show="mobileMenuOpen"
+    style="display: none"
+    class="fixed inset-y-0 right-0 z-[101] w-64 transform bg-white shadow-xl transition-transform duration-300"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="translate-x-full"
+    x-transition:enter-end="translate-x-0"
+    x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="translate-x-0"
+    x-transition:leave-end="translate-x-full"
+  >
+    <div class="flex items-center justify-between border-b border-gray-100 p-4">
+      <span class="text-lg font-bold text-gray-900">Menu</span>
+      <button @click="mobileMenuOpen = false" class="p-2 text-gray-500">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </div>
+    <nav class="p-4">
+      <ul class="flex flex-col gap-4">
+        <li>
+          <a
+            href="#demo"
+            @click="mobileMenuOpen = false"
+            class="text-gray-primary hover:text-primary-main block text-base font-medium transition-colors"
+            >Demo</a
+          >
+        </li>
+        <li>
+          <a
+            href="#inner-pages"
+            @click="mobileMenuOpen = false"
+            class="text-gray-primary hover:text-primary-main block text-base font-medium transition-colors"
+            >Inner Pages</a
+          >
+        </li>
+        <li>
+          <a
+            href="#features"
+            @click="mobileMenuOpen = false"
+            class="text-gray-primary hover:text-primary-main block text-base font-medium transition-colors"
+            >Features</a
+          >
+        </li>
+        <li>
+          <a
+            href="#faq"
+            @click="mobileMenuOpen = false"
+            class="text-gray-primary hover:text-primary-main block text-base font-medium transition-colors"
+            >FAQ</a
+          >
+        </li>
+      </ul>
+      <div class="mt-8">
+        <a
+          href="https://themeforest.net/user/createuiux"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary-main bg-success-light hover:bg-opacity-90 flex w-full items-center justify-center rounded-lg px-5 py-3 text-base font-medium transition"
+        >
+          Buy Now
+          <svg
+            class="ml-2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+          >
+            <path
+              d="M15.5833 6.41675L5.5 16.5001"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.0834 5.49997H15.8334C16.1476 5.49997 16.3048 5.49997 16.4024 5.5976C16.5 5.69523 16.5 5.85237 16.5 6.16664V11.9166"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<section id="demo"
+  class="pt-40 pb-30 lg:pt-70 lg:pb-52"
+  style="
+    --hero-art: url(&quot;./images/storly/hero-preview.webp&quot;);
+  "
+>
+  <div class="custom-container">
+    <div class="mx-auto max-w-5xl">
+      <div class="flex flex-col items-center text-center">
+        <span
+          class="hero-badge mb-4 flex h-8 items-center gap-2 rounded-full border border-dashed border-white px-4 py-2 text-sm text-white lg:mb-8"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <g clip-path="url(#clip0_24_2451)">
+              <path
+                d="M8 1.5C8.27614 1.5 8.5 1.72386 8.5 2C8.5 3.33738 9.17373 4.71662 10.2286 5.77145C11.2834 6.82627 12.6626 7.5 14 7.5C14.2761 7.5 14.5 7.72386 14.5 8C14.5 8.27614 14.2761 8.5 14 8.5C12.6626 8.5 11.2834 9.17373 10.2286 10.2286C9.17373 11.2834 8.5 12.6626 8.5 14C8.5 14.2761 8.27614 14.5 8 14.5C7.72386 14.5 7.5 14.2761 7.5 14C7.5 12.6626 6.82627 11.2834 5.77145 10.2286C4.71662 9.17373 3.33738 8.5 2 8.5C1.72386 8.5 1.5 8.27614 1.5 8C1.5 7.72386 1.72386 7.5 2 7.5C3.33738 7.5 4.71662 6.82627 5.77145 5.77145C6.82627 4.71662 7.5 3.33738 7.5 2C7.5 1.72386 7.72386 1.5 8 1.5Z"
+                fill="#AAF27F"
+              />
+              <path
+                d="M2.99992 10.8333C3.27606 10.8333 3.49992 11.0572 3.49992 11.3333L3.50019 11.3344C3.50224 11.3445 3.51764 11.4201 3.60734 11.565C3.69587 11.708 3.82613 11.8691 3.97847 12.0215C4.13082 12.1738 4.29197 12.3041 4.43497 12.3926C4.57987 12.4823 4.65547 12.4977 4.66552 12.4997L4.66659 12.5C4.94273 12.5 5.16659 12.7239 5.16659 13C5.16659 13.2762 4.94273 13.5 4.66659 13.5L4.66552 13.5003C4.65547 13.5023 4.57987 13.5177 4.43497 13.6074C4.29197 13.696 4.13082 13.8262 3.97847 13.9786C3.82613 14.1309 3.69587 14.2921 3.60734 14.4351C3.51764 14.58 3.50224 14.6556 3.50019 14.6656L3.49992 14.6667C3.49992 14.9428 3.27606 15.1667 2.99992 15.1667C2.72378 15.1667 2.49992 14.9428 2.49992 14.6667L2.49964 14.6656C2.4976 14.6556 2.48219 14.58 2.39249 14.4351C2.30397 14.2921 2.17371 14.1309 2.02137 13.9786C1.86902 13.8262 1.70787 13.696 1.56487 13.6074C1.41997 13.5177 1.34436 13.5023 1.33431 13.5003L1.33325 13.5C1.05711 13.5 0.833252 13.2762 0.833252 13C0.833252 12.7239 1.05711 12.5 1.33325 12.5L1.33431 12.4997C1.34436 12.4977 1.41997 12.4823 1.56487 12.3926C1.70787 12.3041 1.86902 12.1738 2.02137 12.0215C2.17371 11.8691 2.30397 11.708 2.39249 11.565C2.48219 11.4201 2.4976 11.3445 2.49964 11.3344L2.49992 11.3333C2.49992 11.0572 2.72378 10.8333 2.99992 10.8333Z"
+                fill="#AAF27F"
+              />
+              <path
+                d="M12.9999 0.833344C13.2761 0.833344 13.4999 1.0572 13.4999 1.33334L13.5002 1.3344C13.5022 1.34446 13.5176 1.42006 13.6073 1.56496C13.6959 1.70796 13.8261 1.86911 13.9785 2.02146C14.1308 2.1738 14.292 2.30406 14.435 2.39259C14.5799 2.48229 14.6555 2.49769 14.6655 2.49974L14.6666 2.50001C14.9427 2.50001 15.1666 2.72387 15.1666 3.00001C15.1666 3.27615 14.9427 3.50001 14.6666 3.50001L14.6655 3.50028C14.6555 3.50233 14.5799 3.51773 14.435 3.60743C14.292 3.69596 14.1308 3.82622 13.9785 3.97856C13.8261 4.13091 13.6959 4.29206 13.6073 4.43506C13.5176 4.57996 13.5022 4.65556 13.5002 4.66562L13.4999 4.66668C13.4999 4.94282 13.2761 5.16668 12.9999 5.16668C12.7238 5.16668 12.4999 4.94282 12.4999 4.66668L12.4996 4.66562C12.4976 4.65556 12.4822 4.57996 12.3925 4.43506C12.304 4.29206 12.1737 4.13091 12.0214 3.97856C11.869 3.82622 11.7079 3.69596 11.5649 3.60743C11.42 3.51774 11.3444 3.50233 11.3343 3.50028L11.3333 3.50001C11.0571 3.50001 10.8333 3.27615 10.8333 3.00001C10.8333 2.72387 11.0571 2.50001 11.3333 2.50001L11.3343 2.49974C11.3444 2.49769 11.42 2.48229 11.5649 2.39259C11.7079 2.30406 11.869 2.1738 12.0214 2.02146C12.1737 1.86911 12.304 1.70796 12.3925 1.56496C12.4822 1.42006 12.4976 1.34446 12.4996 1.3344L12.4999 1.33334C12.4999 1.0572 12.7238 0.833344 12.9999 0.833344Z"
+                fill="#AAF27F"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_24_2451">
+                <rect width="16" height="16" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          Built for Modern Online Stores</span
+        >
+        <h1 aria-label="Storly Multipurpose eCommerce Vue.js Template"
+          class="mb-5 text-3xl leading-normal font-bold text-white lg:mb-10 lg:text-5xl lg:leading-normal xl:text-[64px] xl:leading-20"
+        >
+<span class="hero-word" style="--word:0" aria-hidden="true">Storly</span> <span class="hero-word" style="--word:1" aria-hidden="true">Multipurpose</span> <span class="hero-word" style="--word:2" aria-hidden="true">eCommerce</span> <span class="hero-word" style="--word:3" aria-hidden="true">Vue.js</span> <span class="hero-word" style="--word:4" aria-hidden="true">Template</span></h1>
+        <div class="hero-cta">
+          <a
+          href="https://themeforest.net/user/createuiux"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary-main bg-success-light inline-flex items-center justify-center rounded-lg px-5 py-3 text-base font-medium"
+        >
+            Get in Touch
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+            >
+              <path
+                d="M15.5833 6.41675L5.5 16.5001"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M10.0834 5.49997H15.8334C16.1476 5.49997 16.3048 5.49997 16.4024 5.5976C16.5 5.69523 16.5 5.85237 16.5 6.16664V11.9166"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-showcase" aria-label="Storly homepage previews">
+<a class="hero-shot hero-shot-left" href="https://storly-nextjs.vercel.app/index-2" target="_blank" rel="noopener noreferrer"><div class="hero-browser"><i></i><i></i><i></i><span>Storly · Home 02</span></div><img src="images/storly/home-2.webp" alt="Storly Home 2 preview" width="720" height="828"></a>
+<a class="hero-shot hero-shot-center" href="https://storly-nextjs.vercel.app/" target="_blank" rel="noopener noreferrer"><div class="hero-browser"><i></i><i></i><i></i><span>Storly · Home 01</span></div><img src="images/storly/home-1.webp" alt="Storly Home 1 preview" width="720" height="828"></a>
+<a class="hero-shot hero-shot-right" href="https://storly-nextjs.vercel.app/index-3" target="_blank" rel="noopener noreferrer"><div class="hero-browser"><i></i><i></i><i></i><span>Storly · Home 03</span></div><img src="images/storly/home-3.webp" alt="Storly Home 3 preview" width="720" height="828"></a>
+</div>
+<div
+        class="mt-12 flex flex-wrap items-center justify-center gap-8 lg:mt-25"
+      >
+        <div class="hero-feature flex items-center gap-4" style="--feature:0">
+          <div
+            class="bg-success-dark/25 flex size-16 shrink-0 items-center justify-center rounded-2xl"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="29"
+              height="29"
+              viewBox="0 0 29 29"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M5.35028 23.1794V2.97168H2.9729V24.3681C2.9729 25.0246 3.50509 25.5568 4.16159 25.5568H25.558V23.1794H5.35028Z"
+                fill="#54D62C"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16.0485 8.9151L12.4824 8.9151L12.4824 6.53772L16.0485 6.53772L16.0485 8.9151Z"
+                fill="#54D62C"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M25.558 8.9151L21.9919 8.9151L21.9919 6.53772L25.558 6.53772L25.558 8.9151Z"
+                fill="#54D62C"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.4823 18.4246L8.91626 18.4246L8.91626 16.0472L12.4823 16.0472L12.4823 18.4246Z"
+                fill="#54D62C"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M21.9918 18.4246L18.4258 18.4246L18.4258 16.0472L21.9918 16.0472L21.9918 18.4246Z"
+                fill="#54D62C"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M11.2937 19.6133L11.2937 5.34906L13.6711 5.34906L13.6711 19.6133L11.2937 19.6133Z"
+                fill="#54D62C"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M20.8032 19.6133L20.8032 5.34906L23.1806 5.34906L23.1806 19.6133L20.8032 19.6133Z"
+                fill="#54D62C"
+              />
+            </svg>
+          </div>
+          <div class="text-left">
+            <p class="text-sm text-white">Built for the Web</p>
+            <p class="text-sm text-gray-400">
+              Vue.js, Tailwind CSS and <br />
+              JavaScript.
+            </p>
+          </div>
+        </div>
+        <div class="hero-feature flex items-center gap-4" style="--feature:1">
+          <div
+            class="bg-success-dark/25 flex size-16 shrink-0 items-center justify-center rounded-2xl"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="29"
+              height="29"
+              viewBox="0 0 29 29"
+              fill="none"
+            >
+              <path
+                d="M16.0529 23.399L7.03544 25.0736C5.30583 25.3948 4.44103 25.5554 3.94282 25.0572C3.44462 24.5589 3.60521 23.6941 3.92639 21.9644L5.6009 12.9465C5.86941 11.5005 6.00367 10.7774 6.48032 10.3406C6.95696 9.90369 7.82866 9.81843 9.57205 9.64791C11.2523 9.48357 12.8425 8.90755 14.5 7.25L21.75 14.5007C20.0925 16.1582 19.5162 17.7473 19.3516 19.4277C19.1808 21.1713 19.0954 22.0431 18.6586 22.5197C18.2217 22.9962 17.4988 23.1305 16.0529 23.399Z"
+                stroke="#54D62C"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M13.2916 18.3794C12.6156 18.2696 11.9974 17.9755 11.5109 17.489M11.5109 17.489C11.0244 17.0025 10.7303 16.3843 10.6205 15.7083M11.5109 17.489L4.83325 24.1666"
+                stroke="#54D62C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M14.5 7.25C15.3607 5.98016 16.5265 3.84395 18.2537 3.63827C19.4327 3.49787 20.4094 4.4746 22.3629 6.42806L22.5719 6.6371C24.5254 8.59057 25.5021 9.5673 25.3617 10.7463C25.156 12.4735 23.0198 13.6393 21.75 14.5"
+                stroke="#54D62C"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="text-left">
+            <p class="text-sm text-white">Modern Design</p>
+            <p class="text-sm text-gray-400">
+              Clean, elegant & fully <br />
+              responsive layout.
+            </p>
+          </div>
+        </div>
+        <div class="hero-feature flex items-center gap-4" style="--feature:2">
+          <div
+            class="bg-success-dark/25 flex size-16 shrink-0 items-center justify-center rounded-2xl"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="27"
+              height="27"
+              viewBox="0 0 27 27"
+              fill="none"
+            >
+              <path
+                d="M13.498 2.25C10.1142 2.25 7.92021 4.52137 5.32543 5.34927C4.27037 5.6859 3.74284 5.85421 3.52935 6.09148C3.31586 6.32875 3.25334 6.67547 3.12831 7.3689C1.79036 14.7892 4.71476 21.6495 11.6891 24.3197C12.4384 24.6066 12.8131 24.75 13.5017 24.75C14.1902 24.75 14.5649 24.6065 15.3142 24.3196C22.2881 21.6494 25.2097 14.7892 23.8713 7.36889C23.7463 6.67534 23.6837 6.32857 23.4702 6.0913C23.2566 5.85403 22.7291 5.6858 21.6742 5.34936C19.0784 4.52154 16.8819 2.25 13.498 2.25Z"
+                stroke="#54D62C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M10.125 14.625C10.125 14.625 11.25 14.625 12.375 16.875C12.375 16.875 15.9485 11.25 19.125 10.125"
+                stroke="#54D62C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="text-left">
+            <p class="text-sm text-white">Flexible Foundation</p>
+            <p class="text-sm text-gray-400">
+              Vue.js, Tailwind CSS and <br />
+              JavaScript.
+            </p>
+          </div>
+        </div>
+        <div class="hero-feature flex items-center gap-4" style="--feature:3">
+          <div
+            class="bg-success-dark/25 flex size-16 shrink-0 items-center justify-center rounded-2xl"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="31"
+              height="31"
+              viewBox="0 0 31 31"
+              fill="none"
+            >
+              <path
+                d="M21.9585 13.9558C21.9585 13.5093 21.9585 13.2861 22.0257 13.0871C22.221 12.5091 22.7358 12.2847 23.2516 12.0498C23.8314 11.7857 24.1213 11.6537 24.4086 11.6304C24.7347 11.6041 25.0614 11.6743 25.3401 11.8307C25.7096 12.0381 25.9673 12.4322 26.2312 12.7526C27.4497 14.2327 28.059 14.9727 28.2819 15.7888C28.4618 16.4473 28.4618 17.136 28.2819 17.7946C27.9567 18.9848 26.9295 19.9825 26.1691 20.9061C25.7801 21.3786 25.5856 21.6148 25.3401 21.7526C25.0614 21.909 24.7347 21.9793 24.4086 21.9529C24.1213 21.9297 23.8314 21.7976 23.2516 21.5335C22.7358 21.2986 22.221 21.0743 22.0257 20.4962C21.9585 20.2972 21.9585 20.074 21.9585 19.6276V13.9558Z"
+                stroke="#54D62C"
+                stroke-width="1.5"
+              />
+              <path
+                d="M9.04175 13.9557C9.04175 13.3935 9.02596 12.8882 8.57147 12.493C8.40615 12.3492 8.18699 12.2494 7.74867 12.0497C7.16884 11.7856 6.87893 11.6536 6.59166 11.6303C5.7298 11.5606 5.2661 12.1489 4.76908 12.7526C3.55055 14.2326 2.94129 14.9726 2.71835 15.7887C2.53844 16.4472 2.53844 17.1359 2.71835 17.7945C3.04351 18.9847 4.07079 19.9825 4.83119 20.906C5.31049 21.4882 5.76837 22.0194 6.59166 21.9528C6.87893 21.9296 7.16884 21.7975 7.74867 21.5334C8.18699 21.3338 8.40615 21.234 8.57147 21.0902C9.02596 20.6949 9.04175 20.1897 9.04175 19.6275V13.9557Z"
+                stroke="#54D62C"
+                stroke-width="1.5"
+              />
+              <path
+                d="M6.4585 11.625C6.4585 7.34479 10.5066 3.875 15.5002 3.875C20.4937 3.875 24.5418 7.34479 24.5418 11.625"
+                stroke="#54D62C"
+                stroke-width="1.5"
+                stroke-linecap="square"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M24.5417 21.9583V22.9916C24.5417 25.2744 22.2286 27.125 19.3751 27.125H16.7917"
+                stroke="#54D62C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="text-left">
+            <p class="text-sm text-white">Thoughtful Details</p>
+            <p class="text-sm text-gray-400">
+              Designed around <br />
+              your business.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<button type="button" class="hero-motion-control" aria-pressed="false" aria-label="Pause or play decorative hero animation">Pause motion</button>
+</section>
+<section class="pt-20 pb-20 lg:pb-30">
+  <div class="custom-container">
+    <div class="relative mx-auto max-w-4xl text-center">
+      <div class="mx-auto max-w-2xl">
+        <span
+          class="bg-[linear-gradient(180deg,#AAF27F_0%,#FFF_95.67%)] bg-clip-text text-[200px] leading-none font-bold text-transparent"
+          >22</span
+        >
+        <h3
+          class="text-primary-main -mt-16 mb-8 text-3xl font-bold md:text-4xl lg:text-5xl"
+        >
+          22 Storefront Designs. One Powerful Starting Point.
+        </h3>
+      </div>
+    </div>
+    <ul
+      class="mb-20 flex flex-wrap items-center justify-center gap-10 lg:gap-25"
+    >
+      <li class="flex items-center gap-2 text-2xl font-bold">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+        >
+          <path
+            d="M27.5 15C27.5 8.09644 21.9036 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5C21.9036 27.5 27.5 21.9036 27.5 15Z"
+            fill="#FEFDF8"
+          />
+          <path
+            d="M18.75 3.07225C17.5662 2.70044 16.3065 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5C21.9036 27.5 27.5 21.9036 27.5 15C27.5 13.6935 27.2996 12.4338 26.9277 11.25"
+            stroke="#04535C"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <path
+            d="M10.625 11.875L15 16.25L26.2503 3.75"
+            stroke="#04535C"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        Vue.js Foundation
+      </li>
+      <li class="flex items-center gap-2 text-2xl font-bold">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+        >
+          <path
+            d="M27.5 15C27.5 8.09644 21.9036 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5C21.9036 27.5 27.5 21.9036 27.5 15Z"
+            fill="#FEFDF8"
+          />
+          <path
+            d="M18.75 3.07225C17.5662 2.70044 16.3065 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5C21.9036 27.5 27.5 21.9036 27.5 15C27.5 13.6935 27.2996 12.4338 26.9277 11.25"
+            stroke="#04535C"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <path
+            d="M10.625 11.875L15 16.25L26.2503 3.75"
+            stroke="#04535C"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        Flexible Layouts
+      </li>
+      <li class="flex items-center gap-2 text-2xl font-bold">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+        >
+          <path
+            d="M27.5 15C27.5 8.09644 21.9036 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5C21.9036 27.5 27.5 21.9036 27.5 15Z"
+            fill="#FEFDF8"
+          />
+          <path
+            d="M18.75 3.07225C17.5662 2.70044 16.3065 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5C21.9036 27.5 27.5 21.9036 27.5 15C27.5 13.6935 27.2996 12.4338 26.9277 11.25"
+            stroke="#04535C"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <path
+            d="M10.625 11.875L15 16.25L26.2503 3.75"
+            stroke="#04535C"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        Make It Your Own
+      </li>
+    </ul>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-1.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 1"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/" target="_blank" rel="noopener noreferrer">
+              Home 1
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-2" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-2.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 2"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-2" target="_blank" rel="noopener noreferrer">
+              Home 2
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-3" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-3.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 3"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-3" target="_blank" rel="noopener noreferrer">
+              Home 3
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-4" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-4.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 4"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-4" target="_blank" rel="noopener noreferrer">
+              Home 4
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-5" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-5.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 5"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-5" target="_blank" rel="noopener noreferrer">
+              Home 5
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-6" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-6.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 6"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-6" target="_blank" rel="noopener noreferrer">
+              Home 6
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-7" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-7.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 7"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-7" target="_blank" rel="noopener noreferrer">
+              Home 7
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-8" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-8.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 8"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-8" target="_blank" rel="noopener noreferrer">
+              Home 8
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-9" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-9.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 9"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-9" target="_blank" rel="noopener noreferrer">
+              Home 9
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-10" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-10.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 10"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-10" target="_blank" rel="noopener noreferrer">
+              Home 10
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-11" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-11.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 11"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-11" target="_blank" rel="noopener noreferrer">
+              Home 11
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-12" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-12.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 12"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-12" target="_blank" rel="noopener noreferrer">
+              Home 12
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-13" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-13.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 13"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-13" target="_blank" rel="noopener noreferrer">
+              Home 13
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-14" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-14.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 14"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-14" target="_blank" rel="noopener noreferrer">
+              Home 14
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-15" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-15.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 15"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-15" target="_blank" rel="noopener noreferrer">
+              Home 15
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-16" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-16.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 16"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-16" target="_blank" rel="noopener noreferrer">
+              Home 16
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-17" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-17.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 17"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-17" target="_blank" rel="noopener noreferrer">
+              Home 17
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-18" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-18.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 18"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-18" target="_blank" rel="noopener noreferrer">
+              Home 18
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-19" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-19.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 19"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-19" target="_blank" rel="noopener noreferrer">
+              Home 19
+            </a>
+          </h3>
+        </div>
+      </article>
+      <article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-20" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-20.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 20"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-20" target="_blank" rel="noopener noreferrer">
+              Home 20
+            </a>
+          </h3>
+        </div>
+      </article><article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-21" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-21.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 21"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-21" target="_blank" rel="noopener noreferrer">
+              Home 21
+            </a>
+          </h3>
+        </div>
+      </article><article class="rounded-xl border border-gray-300 p-3">
+        <a class="group block overflow-hidden rounded-xl" href="https://storly-nextjs.vercel.app/index-22" target="_blank" rel="noopener noreferrer">
+          <img
+            src="images/storly/home-22.webp"
+            class="w-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+            alt="Home 22"
+          />
+        </a>
+        <div class="pt-6 pb-2 text-center">
+          <h3 class="text-primary-main text-2xl font-bold">
+            <a
+              class="hover:text-success-main transition-colors"
+             href="https://storly-nextjs.vercel.app/index-22" target="_blank" rel="noopener noreferrer">
+              Home 22
+            </a>
+          </h3>
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+<section class="bg-primary-main relative overflow-hidden py-20">
+  <div class="custom-container relative z-10">
+    <div class="relative mx-auto mb-16 max-w-4xl text-center">
+      <!-- Huge 20+ Background Text -->
+      <div class="relative inline-block">
+        <span
+          class="bg-[linear-gradient(180deg,#AAF27F_25.96%,#FFF_95.67%)] bg-clip-text text-[200px] leading-none font-bold text-transparent"
+          >10</span
+        >
+        <div
+          class="from-primary-main absolute bottom-0 left-0 h-2/3 w-full bg-gradient-to-t to-transparent"
+        ></div>
+      </div>
+      <!-- Main Heading -->
+      <h2
+        class="text-success-light relative -mt-18 text-3xl leading-tight font-bold md:text-4xl lg:text-5xl lg:leading-16"
+      >
+        Show Every Product at Its Best With<br class="hidden sm:block" />Flexible Product Detail Layouts.
+      </h2>
+
+      <!-- Subtitle -->
+      <p class="relative mx-auto mb-5 text-base text-white sm:text-lg">
+        Showcase products, variants and purchase information with carefully arranged product detail layouts.
+      </p>
+
+      <!-- CTA Button -->
+        <a
+          href="https://themeforest.net/user/createuiux"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary-main bg-success-light hover:bg-opacity-90 inline-flex items-center justify-center rounded-lg px-5 py-3 text-base font-medium transition"
+        >
+
+        Get in Touch
+        <svg
+          class="ml-2"
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+        >
+          <path
+            d="M15.5833 6.41675L5.5 16.5001"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <path
+            d="M10.0834 5.49997H15.8334C16.1476 5.49997 16.3048 5.49997 16.4024 5.5976C16.5 5.69523 16.5 5.85237 16.5 6.16664V11.9166"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Marquee Grid (2 rows) -->
+  <div class="relative mx-auto mt-10">
+    <!-- Fade Edges -->
+    <div
+      class="from-primary-main pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r to-transparent"
+    ></div>
+    <div
+      class="from-primary-main pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l to-transparent"
+    ></div>
+
+    <!-- Row 1 -->
+    <div class="flex overflow-hidden">
+      <div
+        class="animate-marquee pause-on-hover flex min-w-full shrink-0 gap-5 py-4 pl-6"
+      >
+        <!-- Original Set -->
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-1"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-1.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 1"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-2"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-2.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 2"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-3"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-3.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 3"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-4"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-4.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 4"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-5"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-5.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 5"
+          />
+        </a>
+
+        <!-- Duplicated Set -->
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-1"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-1.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 1"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-2"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-2.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 2"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-3"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-3.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 3"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-4"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-4.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 4"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-5"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-5.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 5"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="mt-6 flex overflow-hidden">
+      <div
+        class="animate-marquee-reverse pause-on-hover flex min-w-full shrink-0 gap-6 py-4 pl-6"
+      >
+        <!-- Original Set -->
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-6"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-6.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 6"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-7"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-7.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 7"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-8"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-8.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 8"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-9"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-9.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 9"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-10"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-10.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 10"
+          />
+        </a>
+
+        <!-- Duplicated Set -->
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-6"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-6.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 6"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-7"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-7.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 7"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-8"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-8.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 8"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-9"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-9.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 9"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/product-details-10"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-xl border border-gray-300 bg-white p-3 shadow-lg transition-transform"
+        >
+          <img
+            src="images/storly/product-10.webp"
+            class="h-full w-full rounded-xl object-cover object-top"
+            alt="Layout Preview 10"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="features" class="bg-white py-20 lg:py-25">
+  <div class="custom-container">
+    <!-- Header -->
+    <div class="mb-20">
+      <!-- Badge -->
+      <span
+        class="text-primary-main bg-success-light mb-10 inline-flex items-center gap-2 rounded-full px-5 py-1.5 text-sm font-normal"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <path
+            d="M8 1.5C8.27614 1.5 8.5 1.72386 8.5 2C8.5 3.33738 9.17373 4.71662 10.2286 5.77145C11.2834 6.82627 12.6626 7.5 14 7.5C14.2761 7.5 14.5 7.72386 14.5 8C14.5 8.27614 14.2761 8.5 14 8.5C12.6626 8.5 11.2834 9.17373 10.2286 10.2286C9.17373 11.2834 8.5 12.6626 8.5 14C8.5 14.2761 8.27614 14.5 8 14.5C7.72386 14.5 7.5 14.2761 7.5 14C7.5 12.6626 6.82627 11.2834 5.77145 10.2286C4.71662 9.17373 3.33738 8.5 2 8.5C1.72386 8.5 1.5 8.27614 1.5 8C1.5 7.72386 1.72386 7.5 2 7.5C3.33738 7.5 4.71662 6.82627 5.77145 5.77145C6.82627 4.71662 7.5 3.33738 7.5 2C7.5 1.72386 7.72386 1.5 8 1.5Z"
+            fill="#01494D"
+          />
+          <path
+            d="M2.99992 10.8335C3.27606 10.8335 3.49992 11.0574 3.49992 11.3335L3.50019 11.3346C3.50224 11.3446 3.51764 11.4202 3.60734 11.5651C3.69587 11.7081 3.82613 11.8693 3.97847 12.0216C4.13082 12.174 4.29197 12.3042 4.43497 12.3927C4.57987 12.4824 4.65547 12.4978 4.66552 12.4999L4.66659 12.5002C4.94273 12.5002 5.16659 12.724 5.16659 13.0002C5.16659 13.2763 4.94273 13.5002 4.66659 13.5002L4.66552 13.5004C4.65547 13.5025 4.57987 13.5179 4.43497 13.6076C4.29197 13.6961 4.13082 13.8264 3.97847 13.9787C3.82613 14.1311 3.69587 14.2922 3.60734 14.4352C3.51764 14.5801 3.50224 14.6557 3.50019 14.6658L3.49992 14.6668C3.49992 14.943 3.27606 15.1668 2.99992 15.1668C2.72378 15.1668 2.49992 14.943 2.49992 14.6668L2.49964 14.6658C2.4976 14.6557 2.48219 14.5801 2.39249 14.4352C2.30397 14.2922 2.17371 14.1311 2.02137 13.9787C1.86902 13.8264 1.70787 13.6961 1.56487 13.6076C1.41997 13.5179 1.34436 13.5025 1.33431 13.5004L1.33325 13.5002C1.05711 13.5002 0.833252 13.2763 0.833252 13.0002C0.833252 12.724 1.05711 12.5002 1.33325 12.5002L1.33431 12.4999C1.34436 12.4978 1.41997 12.4824 1.56487 12.3927C1.70787 12.3042 1.86902 12.174 2.02137 12.0216C2.17371 11.8693 2.30397 11.7081 2.39249 11.5651C2.48219 11.4202 2.4976 11.3446 2.49964 11.3346L2.49992 11.3335C2.49992 11.0574 2.72378 10.8335 2.99992 10.8335Z"
+            fill="#01494D"
+          />
+          <path
+            d="M12.9999 0.833496C13.2761 0.833496 13.4999 1.05735 13.4999 1.3335L13.5002 1.33456C13.5022 1.34461 13.5176 1.42021 13.6073 1.56511C13.6959 1.70811 13.8261 1.86926 13.9785 2.02161C14.1308 2.17396 14.292 2.30421 14.435 2.39274C14.5799 2.48244 14.6555 2.49784 14.6655 2.49989L14.6666 2.50016C14.9427 2.50016 15.1666 2.72402 15.1666 3.00016C15.1666 3.27631 14.9427 3.50016 14.6666 3.50016L14.6655 3.50044C14.6555 3.50249 14.5799 3.51789 14.435 3.60759C14.292 3.69611 14.1308 3.82637 13.9785 3.97872C13.8261 4.13106 13.6959 4.29221 13.6073 4.43521C13.5176 4.58012 13.5022 4.65572 13.5002 4.66577L13.4999 4.66683C13.4999 4.94297 13.2761 5.16683 12.9999 5.16683C12.7238 5.16683 12.4999 4.94297 12.4999 4.66683L12.4996 4.66577C12.4976 4.65572 12.4822 4.58012 12.3925 4.43521C12.304 4.29221 12.1737 4.13106 12.0214 3.97872C11.869 3.82637 11.7079 3.69611 11.5649 3.60759C11.42 3.51789 11.3444 3.50249 11.3343 3.50044L11.3333 3.50016C11.0571 3.50016 10.8333 3.27631 10.8333 3.00016C10.8333 2.72402 11.0571 2.50016 11.3333 2.50016L11.3343 2.49989C11.3444 2.49784 11.42 2.48244 11.5649 2.39274C11.7079 2.30421 11.869 2.17396 12.0214 2.02161C12.1737 1.86926 12.304 1.70811 12.3925 1.56511C12.4822 1.42021 12.4976 1.34461 12.4996 1.33456L12.4999 1.3335C12.4999 1.05735 12.7238 0.833496 12.9999 0.833496Z"
+            fill="#01494D"
+          />
+        </svg>
+        Main Features
+      </span>
+
+      <h2
+        class="text-gray-primary text-3xl leading-tight font-bold md:text-5xl"
+      >
+        A Modern eCommerce Foundation <br class="hidden lg:block" />
+        <span class="text-primary-main"
+          >For Your Next Online Store</span
+        >
+      </h2>
+    </div>
+
+    <!-- Grid Container -->
+    <div
+      class="grid grid-cols-2 overflow-hidden border-t border-l border-gray-300 lg:grid-cols-4"
+    >
+      <!-- Feature 1 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-8 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M42 40C40.7133 37.4266 38 34.0485 38 31.0557C38 27.659 38.7341 23.4682 37.1554 20.3108C36.4889 18.9778 36 17.6279 36 16.1115V8.85714C36 8.38376 35.6162 8 35.1429 8C32.3025 8 30 10.3025 30 13.1429M16 36L23.2696 40.5435C23.751 40.8444 24.1629 41.2443 24.4778 41.7167L26 44"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.0547 30C10.164 32.1934 10.4903 33.5618 11.4641 34.5355C12.9285 36 15.2855 36 19.9996 36C24.7136 36 27.0707 36 28.5351 34.5355C29.9996 33.0711 29.9996 30.714 29.9996 26V14C29.9996 9.28595 29.9996 6.92893 28.5351 5.46447C27.0707 4 24.7136 4 19.9996 4C15.2855 4 12.9285 4 11.4641 5.46447C10.4903 6.43821 10.164 7.80655 10.0547 10"
+              stroke="#04535C"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M8.5 15H11.5C12.8807 15 14 13.8807 14 12.5C14 11.1193 12.8807 10 11.5 10L8.5 10C7.11929 10 6 11.1193 6 12.5C6 13.8807 7.11929 15 8.5 15ZM8.5 25H10.5C11.8807 25 13 26.1193 13 27.5C13 28.8807 11.8807 30 10.5 30H8.5C7.11929 30 6 28.8807 6 27.5C6 26.1193 7.11929 25 8.5 25C7.11929 25 6 23.8807 6 22.5C6 21.1193 7.11929 20 8.5 20L13.5 20C14.8807 20 16 18.8807 16 17.5C16 16.1193 14.8807 15 13.5 15L8.5 15M8.5 15C7.11929 15 6 16.1193 6 17.5C6 18.8807 7.11929 20 8.5 20M8.5 20L11.5 20C12.8807 20 14 21.1193 14 22.5C14 23.8807 12.8807 25 11.5 25H8.5"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M19.9996 30H20.0176"
+              stroke="#04535C"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          Fully Responsive
+        </h4>
+      </div>
+
+      <!-- Feature 2 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M2 24C2 24 10 8 24 8C38 8 46 24 46 24C46 24 38 40 24 40C10 40 2 24 2 24Z"
+              stroke="#1E1E1E"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M24 30C27.3137 30 30 27.3137 30 24C30 20.6863 27.3137 18 24 18C20.6863 18 18 20.6863 18 24C18 27.3137 20.6863 30 24 30Z"
+              stroke="#1E1E1E"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          Sharp Visuals
+        </h4>
+      </div>
+
+      <!-- Feature 3 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M37.3297 16.6659C37.8106 16.4257 38.3833 16.4612 38.8309 16.759L44.8309 20.751C45.2489 21.0291 45.5 21.4979 45.5 21.9999V29.9999C45.5 30.5014 45.2493 30.9698 44.8321 31.248L38.8321 35.248C38.3836 35.5469 37.8093 35.5823 37.3276 35.3407L32.5 32.9197V19.0784L37.3297 16.6659Z"
+              fill="#04535C"
+            />
+            <path
+              d="M9.16909 16.759C9.61666 16.4612 10.1894 16.4257 10.6703 16.6659L15.5 19.0784V32.9197L10.6724 35.3407C10.1907 35.5823 9.61637 35.5469 9.16795 35.248L3.16795 31.248C2.75065 30.9698 2.5 30.5014 2.5 29.9999V21.9999C2.5 21.4979 2.75114 21.0291 3.16909 20.751L9.16909 16.759Z"
+              fill="#04535C"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M24 8C17.0722 8 12 12.7553 12 18H8C8 9.98988 15.4638 4 24 4C32.5362 4 40 9.98988 40 18H36C36 12.7553 30.9278 8 24 8Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M36 40V34H40V42C40 43.1046 39.1046 44 38 44H24V40H36Z"
+              fill="black"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          eCommerce Focused
+        </h4>
+      </div>
+
+      <!-- Feature 4 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10.327 26L5.88792 38.6617C5.52247 39.7041 4.38122 40.2528 3.33886 39.8874C2.29649 39.5219 1.74773 38.3807 2.11317 37.3383L7.95108 20.6866C9.25074 16.9793 10.2901 14.0147 11.2886 11.9895C11.795 10.9623 12.3652 10.0171 13.0662 9.31022C13.808 8.56217 14.7845 8 16.0005 8C17.2166 8 18.1931 8.56217 18.9349 9.31022C19.6358 10.0171 20.2061 10.9623 20.7125 11.9895C21.711 14.0147 22.7503 16.9793 24.05 20.6865L29.8879 37.3383C30.2534 38.3807 29.7046 39.5219 28.6622 39.8874C27.6199 40.2528 26.4786 39.7041 26.1132 38.6617L21.6741 26H10.327ZM11.7293 22C13.0631 18.1959 14.0105 15.5142 14.8762 13.7584C15.3144 12.8696 15.6574 12.3779 15.9064 12.1268C15.9442 12.0887 15.9754 12.0602 16.0005 12.0392C16.0257 12.0602 16.0569 12.0887 16.0947 12.1268C16.3437 12.3779 16.6867 12.8696 17.1249 13.7584C17.9906 15.5142 18.938 18.1959 20.2718 22H11.7293ZM16.0812 11.9839C16.0811 11.9845 16.0762 11.9874 16.0669 11.9905C16.0767 11.9848 16.0814 11.9832 16.0812 11.9839ZM15.9342 11.9905C15.9249 11.9874 15.92 11.9845 15.9198 11.9839C15.9197 11.9832 15.9244 11.9848 15.9342 11.9905Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M37.8486 18C37.8984 18.0001 37.9488 18.0001 38 18.0001C38.0512 18.0001 38.1016 18.0001 38.1514 18C38.9314 17.9997 39.5467 17.9994 40.095 18.0863C43.0903 18.5607 45.4394 20.9098 45.9138 23.905C46.0007 24.4534 46.0004 25.0687 46 25.8487C46 25.8985 46 25.9489 46 26.0001V27.9981L46 31.1429L46 31.1471V37.0001C46 38.1047 45.1046 39.0001 44 39.0001C43.3664 39.0001 42.8016 38.7055 42.4352 38.2457C40.9587 39.3477 39.1269 40.0001 37.1429 40.0001C33.3517 40.0001 30 37.0298 30 33.0001C30 29.1341 33.134 26.0001 37 26.0001H42C42 24.9947 41.9938 24.7248 41.9631 24.5308C41.7598 23.2471 40.753 22.2403 39.4693 22.037C39.2753 22.0063 39.0054 22.0001 38 22.0001C36.9946 22.0001 36.7247 22.0063 36.5307 22.037C35.5039 22.1997 34.6529 22.8768 34.2501 23.7999C33.8084 24.8123 32.6296 25.2749 31.6172 24.8332C30.6048 24.3914 30.1422 23.2126 30.5839 22.2002C31.5229 20.0482 33.5061 18.4662 35.905 18.0863C36.4533 17.9994 37.0686 17.9997 37.8486 18ZM42 30.0001H37C35.3431 30.0001 34 31.3432 34 33.0001C34 34.6448 35.3808 36.0001 37.1429 36.0001C39.8244 36.0001 41.9983 33.8271 42 31.146L42 31.1429L42 30.0001Z"
+              fill="#04535C"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          Google Font
+        </h4>
+      </div>
+
+      <!-- Feature 5 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M26.5703 38.7294L11.6449 41.5011C8.78207 42.0328 7.35067 42.2986 6.52605 41.4739C5.70144 40.6493 5.96724 39.2178 6.49885 36.3549L9.27046 21.4287C9.71489 19.0352 9.93711 17.8385 10.726 17.1154C11.515 16.3923 12.9578 16.2512 15.8434 15.969C18.6245 15.6969 21.2566 14.7435 24 12L36 24.0011C33.2566 26.7446 32.3026 29.3749 32.0302 32.1561C31.7475 35.0421 31.6062 36.4851 30.8832 37.2739C30.1601 38.0627 28.9635 38.2849 26.5703 38.7294Z"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M22 30.4211C20.8811 30.2394 19.8579 29.7526 19.0526 28.9474M19.0526 28.9474C18.2474 28.1421 17.7606 27.1189 17.5789 26M19.0526 28.9474L8 40"
+              stroke="#04535C"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M24 12C25.4246 9.89819 27.3542 6.36241 30.213 6.02196C32.1645 5.78957 33.7811 7.40623 37.0144 10.6396L37.3604 10.9855C40.5938 14.2189 42.2104 15.8355 41.978 17.787C41.6376 20.6458 38.1018 22.5754 36 24"
+              stroke="#04535C"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          Unique Design
+        </h4>
+      </div>
+
+      <!-- Feature 6 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+          >
+            <path
+              d="M47.5314 13.0706L46.3164 11.0148C45.3975 9.45996 44.9381 8.68256 44.1564 8.37257C43.3746 8.06257 42.4905 8.30718 40.7223 8.79641L37.7187 9.62128C36.5898 9.8751 35.4054 9.73112 34.3747 9.21476L33.5454 8.74825C32.6615 8.19629 31.9817 7.38245 31.6054 6.42583L30.7833 4.03211C30.2428 2.44806 29.9726 1.65604 29.3292 1.20302C28.6858 0.75 27.8312 0.75 26.122 0.75H23.378C21.6688 0.75 20.8142 0.75 20.1708 1.20302C19.5274 1.65604 19.2572 2.44806 18.7167 4.03211L17.8946 6.42583C17.5183 7.38245 16.8385 8.19629 15.9546 8.74825L15.1253 9.21476C14.0946 9.73112 12.9102 9.8751 11.7813 9.62128L8.77766 8.79641C7.00946 8.30718 6.12536 8.06257 5.34364 8.37257C4.56191 8.68256 4.10248 9.45996 3.1836 11.0148L1.96862 13.0706C1.10731 14.528 0.676653 15.2567 0.760234 16.0324C0.843819 16.8081 1.42035 17.4333 2.57341 18.6835L5.11135 21.45C5.73165 22.2157 6.17203 23.55 6.17203 24.7496C6.17203 25.95 5.73179 27.2839 5.11141 28.0497L2.57341 30.8163L2.5734 30.8163C1.42035 32.0665 0.843823 32.6917 0.760238 33.4674C0.676653 34.2431 1.10732 34.9718 1.96862 36.4292L3.18357 38.485C4.10243 40.0397 4.56191 40.8172 5.34364 41.1272C6.12538 41.4372 7.00949 41.1926 8.77771 40.7033L11.7812 39.8784C12.9103 39.6245 14.0949 39.7686 15.1258 40.2852L15.9549 40.7517C16.8386 41.3037 17.5183 42.1174 17.8946 43.0739L18.7167 45.4679C19.2572 47.0519 19.5274 47.844 20.1708 48.297C20.8142 48.75 21.6688 48.75 23.378 48.75H26.122C27.8312 48.75 28.6858 48.75 29.3292 48.297C29.9726 47.844 30.2428 47.0519 30.7833 45.4679L31.6054 43.0739C31.9817 42.1174 32.6614 41.3037 33.5451 40.7517L34.3742 40.2852C35.4051 39.7686 36.5897 39.6245 37.7188 39.8784L40.7223 40.7033C42.4905 41.1926 43.3746 41.4372 44.1564 41.1272C44.9381 40.8172 45.3976 40.0397 46.3164 38.485L47.5314 36.4292C48.3927 34.9718 48.8233 34.2431 48.7398 33.4674C48.6562 32.6916 48.0796 32.0665 46.9266 30.8163L44.3886 28.0497C43.7682 27.2839 43.328 25.95 43.328 24.7496C43.328 23.55 43.7684 22.2157 44.3887 21.45L46.9266 18.6835C48.0797 17.4333 48.6562 16.8081 48.7398 16.0324C48.8233 15.2567 48.3927 14.528 47.5314 13.0706Z"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M33.2464 24.7311C33.2464 29.3702 29.3891 33.1311 24.631 33.1311C19.8729 33.1311 16.0156 29.3702 16.0156 24.7311C16.0156 20.0919 19.8729 16.3311 24.631 16.3311C29.3891 16.3311 33.2464 20.0919 33.2464 24.7311Z"
+              stroke="#04535C"
+              stroke-width="1.5"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          Easily Customizable
+        </h4>
+      </div>
+
+      <!-- Feature 7 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M4 24C4 15.5147 4 11.2721 6.63604 8.63604C9.27208 6 13.5147 6 22 6H26C34.4853 6 38.7279 6 41.364 8.63604C44 11.2721 44 15.5147 44 24C44 32.4853 44 36.7279 41.364 39.364C38.7279 42 34.4853 42 26 42H22C13.5147 42 9.27208 42 6.63604 39.364C4 36.7279 4 32.4853 4 24Z"
+              stroke="black"
+              stroke-width="1.5"
+            />
+            <path
+              d="M24.3585 30.7475L24.2017 30.0141V30.0141L24.3585 30.7475ZM22.2525 28.6415L22.9859 28.7983L22.2525 28.6415ZM23.7862 24.1955L23.2558 23.6652V23.6652L23.7862 24.1955ZM35.6434 19.5853L36.293 19.2103V19.2103L35.6434 19.5853ZM35.6434 22.2466L36.293 22.6216V22.6216L35.6434 22.2466ZM33.4147 17.3566L33.7897 16.707V16.707L33.4147 17.3566ZM29.5749 18.4068L30.1052 18.9371V18.9371L29.5749 18.4068ZM30.7534 17.3566L30.3784 16.707V16.707L30.7534 17.3566ZM34.5932 23.4251L34.0629 22.8948L28.2742 28.6835L28.8045 29.2138L29.3348 29.7442L35.1235 23.9554L34.5932 23.4251ZM23.7862 24.1955L24.3165 24.7258L30.1052 18.9371L29.5749 18.4068L29.0446 17.8765L23.2558 23.6652L23.7862 24.1955ZM24.3585 30.7475L24.2017 30.0141C23.5736 30.1484 23.1858 30.2293 22.9099 30.2468C22.6476 30.2635 22.6809 30.2076 22.7366 30.2634L22.2063 30.7937L21.676 31.324C22.0729 31.7209 22.5785 31.7709 23.0051 31.7438C23.4183 31.7175 23.936 31.6048 24.5153 31.4809L24.3585 30.7475ZM22.2525 28.6415L21.5191 28.4847C21.3952 29.064 21.2825 29.5817 21.2562 29.9949C21.2291 30.4215 21.2791 30.9271 21.676 31.324L22.2063 30.7937L22.7366 30.2634C22.7924 30.3191 22.7365 30.3524 22.7532 30.0901C22.7707 29.8142 22.8516 29.4264 22.9859 28.7983L22.2525 28.6415ZM34.5932 18.4068L34.0629 18.9371C34.6804 19.5546 34.8806 19.7639 34.9939 19.9603L35.6434 19.5853L36.293 19.2103C36.056 18.7998 35.6728 18.4257 35.1235 17.8765L34.5932 18.4068ZM34.5932 23.4251L35.1235 23.9554C35.6728 23.4062 36.056 23.0321 36.293 22.6216L35.6434 22.2466L34.9939 21.8716C34.8806 22.068 34.6804 22.2773 34.0629 22.8948L34.5932 23.4251ZM35.6434 19.5853L34.9939 19.9603C35.3354 20.5516 35.3354 21.2803 34.9939 21.8716L35.6434 22.2466L36.293 22.6216C36.9023 21.5661 36.9023 20.2657 36.293 19.2103L35.6434 19.5853ZM34.5932 18.4068L35.1235 17.8765C34.5743 17.3272 34.2002 16.944 33.7897 16.707L33.4147 17.3566L33.0397 18.0061C33.2361 18.1194 33.4454 18.3196 34.0629 18.9371L34.5932 18.4068ZM29.5749 18.4068L30.1052 18.9371C30.7227 18.3196 30.932 18.1194 31.1284 18.0061L30.7534 17.3566L30.3784 16.707C29.9679 16.944 29.5938 17.3272 29.0446 17.8765L29.5749 18.4068ZM33.4147 17.3566L33.7897 16.707C32.7343 16.0977 31.4339 16.0977 30.3784 16.707L30.7534 17.3566L31.1284 18.0061C31.7198 17.6646 32.4484 17.6646 33.0397 18.0061L33.4147 17.3566ZM28.8045 29.2138L28.2742 28.6835C27.8308 29.1268 27.2527 29.3822 26.5413 29.5638C26.1853 29.6547 25.8114 29.7236 25.4143 29.7922C25.0261 29.8592 24.6065 29.9275 24.2017 30.0141L24.3585 30.7475L24.5153 31.4809C24.8826 31.4024 25.2602 31.341 25.6697 31.2703C26.0703 31.201 26.4945 31.1239 26.9124 31.0172C27.7489 30.8037 28.6217 30.4573 29.3348 29.7442L28.8045 29.2138ZM22.2525 28.6415L22.9859 28.7983C23.0725 28.3935 23.1408 27.9739 23.2078 27.5857C23.2764 27.1886 23.3453 26.8147 23.4362 26.4587C23.6178 25.7473 23.8732 25.1692 24.3165 24.7258L23.7862 24.1955L23.2558 23.6652C22.5427 24.3783 22.1963 25.2511 21.9828 26.0876C21.8761 26.5055 21.799 26.9297 21.7297 27.3303C21.659 27.7398 21.5976 28.1174 21.5191 28.4847L22.2525 28.6415Z"
+              fill="#04535C"
+            />
+            <path
+              d="M13 6V42"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          Modern Design
+        </h4>
+      </div>
+
+      <!-- Feature 8 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M42 13C42 16.3137 39.3137 19 36 19C32.6863 19 30 16.3137 30 13C30 9.68629 32.6863 7 36 7C39.3137 7 42 9.68629 42 13Z"
+              stroke="black"
+              stroke-width="1.5"
+            />
+            <path
+              d="M18 24C18 27.3137 15.3137 30 12 30C8.68629 30 6 27.3137 6 24C6 20.6863 8.68629 18 12 18C15.3137 18 18 20.6863 18 24Z"
+              stroke="#04535C"
+              stroke-width="1.5"
+            />
+            <path
+              d="M42 35C42 38.3137 39.3137 41 36 41C32.6863 41 30 38.3137 30 35C30 31.6863 32.6863 29 36 29C39.3137 29 42 31.6863 42 35Z"
+              stroke="black"
+              stroke-width="1.5"
+            />
+            <path
+              d="M17.457 21.4994L30.457 15.5005M17.457 26.5005L30.457 32.4994"
+              stroke="black"
+              stroke-width="1.5"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          Social Buttons
+        </h4>
+      </div>
+
+      <!-- Feature 9 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <!-- Tailwind Logo / CSS Braces -->
+          <svg
+            class="size-12"
+            fill="#000000"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            xml:space="preserve"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12 6.036c-2.667 0-4.333 1.325-5 3.976 1-1.325 2.167-1.822 3.5-1.491.761.189 1.305.738 1.906 1.345C13.387 10.855 14.522 12 17 12c2.667 0 4.333-1.325 5-3.976-1 1.325-2.166 1.822-3.5 1.491-.761-.189-1.305-.738-1.907-1.345-.98-.99-2.114-2.134-4.593-2.134zM7 12c-2.667 0-4.333 1.325-5 3.976 1-1.326 2.167-1.822 3.5-1.491.761.189 1.305.738 1.907 1.345.98.989 2.115 2.134 4.594 2.134 2.667 0 4.333-1.325 5-3.976-1 1.325-2.167 1.822-3.5 1.491-.761-.189-1.305-.738-1.906-1.345C10.613 13.145 9.478 12 7 12z"
+              ></path>
+            </g>
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          Tailwind CSS
+        </h4>
+      </div>
+
+      <!-- Feature 10 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="45"
+            height="46"
+            viewBox="0 0 45 46"
+            fill="none"
+          >
+            <path
+              d="M16.875 13.4167H31.4062C35.3563 13.4167 37.3313 13.4167 38.7501 14.3857C39.3643 14.8052 39.8916 15.3443 40.302 15.9721C41.25 17.4224 41.25 19.4413 41.25 23.4792C41.25 30.2089 41.25 33.5737 39.67 35.9909C38.986 37.0373 38.1071 37.9357 37.0835 38.6349C34.7189 40.25 31.4272 40.25 24.8438 40.25H22.5C13.6612 40.25 9.24175 40.25 6.49587 37.4431C3.75 34.6362 3.75 30.1186 3.75 21.0833V15.2265C3.75 11.7449 3.75 10.0042 4.46309 8.69795C4.97141 7.76684 5.723 6.99856 6.63387 6.47894C7.91168 5.75 9.61462 5.75 13.0205 5.75C15.2025 5.75 16.2936 5.75 17.2486 6.1161C19.4292 6.95197 20.3284 8.97685 21.3123 10.9885L22.5 13.4167"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M29.0625 23L30.7873 24.5197C31.5124 25.1586 31.875 25.478 31.875 25.875C31.875 26.272 31.5124 26.5914 30.7873 27.2303L29.0625 28.75"
+              stroke="#04535C"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M15.9375 23L14.2127 24.5197C13.4876 25.1586 13.125 25.478 13.125 25.875C13.125 26.272 13.4876 26.5914 14.2127 27.2303L15.9375 28.75"
+              stroke="#04535C"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M24.375 21.0835L20.625 30.6668"
+              stroke="#04535C"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          Clean Coded
+        </h4>
+      </div>
+
+      <!-- Feature 11 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+          >
+            <path
+              d="M20 36.6668H5L5.00029 3.3335H35V18.3335"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M13.3333 11.6665H26.6666"
+              stroke="#04535C"
+              stroke-width="1.5"
+            />
+            <path d="M13.3333 20H21.6666" stroke="#04535C" stroke-width="1.5" />
+            <path
+              d="M35 33.3335L35 28.3335C35 25.9511 32.7614 23.3335 30 23.3335C27.2386 23.3335 25 25.9511 25 28.3335L25 34.1668C25 35.5475 26.1193 36.6668 27.5 36.6668C28.8807 36.6668 30 35.5475 30 34.1668V28.3335"
+              stroke="#04535C"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          Clear Structure
+        </h4>
+      </div>
+
+      <!-- Feature 12 -->
+      <div
+        class="border-r border-b border-gray-300 bg-white p-8 text-center transition-shadow hover:shadow-lg sm:p-12"
+      >
+        <div
+          class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full bg-transparent shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M5 24C5 15.0433 5 10.565 7.78249 7.78249C10.565 5 15.0433 5 24 5C32.9567 5 37.435 5 40.2175 7.78249C43 10.565 43 15.0433 43 24C43 32.9567 43 37.435 40.2175 40.2175C37.435 43 32.9567 43 24 43C15.0433 43 10.565 43 7.78249 40.2175C5 37.435 5 32.9567 5 24Z"
+              fill="#FEFDF8"
+            />
+            <path
+              d="M5 24C5 15.0433 5 10.565 7.78249 7.78249C10.565 5 15.0433 5 24 5C32.9567 5 37.435 5 40.2175 7.78249C43 10.565 43 15.0433 43 24C43 32.9567 43 37.435 40.2175 40.2175C37.435 43 32.9567 43 24 43C15.0433 43 10.565 43 7.78249 40.2175C5 37.435 5 32.9567 5 24Z"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14 23.2497C13.5858 23.2497 13.25 23.5855 13.25 23.9997C13.25 24.4139 13.5858 24.7497 14 24.7497V23.9997V23.2497ZM34 24.7497C34.4142 24.7497 34.75 24.4139 34.75 23.9997C34.75 23.5855 34.4142 23.2497 34 23.2497V23.9997V24.7497ZM17.7539 18.0003V18.7503H17.754L17.7539 18.0003ZM34 18.75C34.4142 18.75 34.75 18.4142 34.75 18C34.75 17.5858 34.4142 17.25 34 17.25L34 18L34 18.75ZM16.5774 14.4786C16.8418 14.1598 16.7975 13.6869 16.4786 13.4226C16.1598 13.1582 15.6869 13.2025 15.4226 13.5214L16 14L16.5774 14.4786ZM14.0559 17.3436L13.3673 17.6407L13.3673 17.6407L14.0559 17.3436ZM30.2461 29.9999V29.2499H30.246L30.2461 29.9999ZM14 29.2502C13.5858 29.2502 13.25 29.586 13.25 30.0002C13.25 30.4144 13.5858 30.7502 14 30.7502L14 30.0002L14 29.2502ZM31.4226 33.5212C31.1583 33.8401 31.2024 34.3129 31.5213 34.5773C31.8402 34.8417 32.313 34.7975 32.5774 34.4786L32 33.9999L31.4226 33.5212ZM33.944 30.6566L34.6327 30.3596V30.3596L33.944 30.6566ZM14 23.9997V24.7497H34V23.9997V23.2497H14V23.9997ZM17.7539 18.0003L17.754 18.7503L34 18.75L34 18L34 17.25L17.7539 17.2503L17.7539 18.0003ZM17.7539 18.0003V17.2503C16.5915 17.2503 15.8001 17.2486 15.2584 17.175C14.6782 17.0962 14.7137 16.9748 14.7446 17.0465L14.0559 17.3436L13.3673 17.6407C13.6815 18.3691 14.4277 18.576 15.0566 18.6614C15.7239 18.752 16.6399 18.7503 17.7539 18.7503V18.0003ZM16 14C15.4226 13.5214 15.4225 13.5214 15.4225 13.5215C15.4225 13.5215 15.4224 13.5216 15.4223 13.5217C15.4222 13.5218 15.422 13.522 15.4218 13.5223C15.4215 13.5227 15.4209 13.5234 15.4203 13.5241C15.419 13.5257 15.4172 13.5279 15.4148 13.5308C15.4101 13.5365 15.4034 13.5447 15.3948 13.5552C15.3775 13.5763 15.3526 13.6068 15.3213 13.6456C15.2587 13.7232 15.1701 13.8341 15.0649 13.969C14.8553 14.2378 14.5765 14.6063 14.3049 14.9989C14.0368 15.3865 13.7603 15.8196 13.5669 16.2136C13.471 16.4091 13.3821 16.6216 13.3302 16.8309C13.2846 17.0147 13.2327 17.3286 13.3673 17.6407L14.0559 17.3436L14.7446 17.0465C14.8084 17.1944 14.7641 17.2806 14.7861 17.1918C14.8018 17.1285 14.8404 17.0234 14.9135 16.8746C15.058 16.5801 15.2852 16.2184 15.5386 15.8522C15.7884 15.4909 16.0488 15.1467 16.2479 14.8912C16.3471 14.764 16.4303 14.6598 16.4884 14.5879C16.5174 14.5519 16.5401 14.5241 16.5554 14.5055C16.563 14.4962 16.5687 14.4892 16.5724 14.4847C16.5743 14.4824 16.5756 14.4808 16.5765 14.4798C16.5769 14.4793 16.5772 14.4789 16.5773 14.4787C16.5774 14.4786 16.5775 14.4786 16.5775 14.4786C16.5775 14.4786 16.5775 14.4786 16.5775 14.4786C16.5774 14.4786 16.5774 14.4786 16 14ZM30.2461 29.9999L30.246 29.2499L14 29.2502L14 30.0002L14 30.7502L30.2461 30.7499L30.2461 29.9999ZM30.2461 29.9999V30.7499C31.4085 30.7499 32.1999 30.7516 32.7416 30.8252C33.3218 30.904 33.2863 31.0254 33.2554 30.9537L33.944 30.6566L34.6327 30.3596C34.3185 29.6311 33.5723 29.4242 32.9434 29.3388C32.2761 29.2482 31.3601 29.2499 30.2461 29.2499V29.9999ZM32 33.9999C32.5774 34.4786 32.5774 34.4785 32.5775 34.4785C32.5775 34.4784 32.5776 34.4783 32.5777 34.4783C32.5778 34.4781 32.5779 34.4779 32.5781 34.4777C32.5785 34.4772 32.579 34.4766 32.5797 34.4758C32.581 34.4742 32.5828 34.472 32.5852 34.4692C32.5899 34.4635 32.5966 34.4553 32.6052 34.4447C32.6225 34.4237 32.6474 34.3931 32.6787 34.3543C32.7413 34.2768 32.8299 34.1659 32.9351 34.031C33.1447 33.7622 33.4235 33.3937 33.695 33.0012C33.9632 32.6137 34.2396 32.1805 34.4331 31.7866C34.529 31.5911 34.6179 31.3786 34.6698 31.1693C34.7154 30.9855 34.7673 30.6716 34.6327 30.3596L33.944 30.6566L33.2554 30.9537C33.1916 30.8058 33.2359 30.7196 33.2139 30.8083C33.1982 30.8717 33.1596 30.9767 33.0865 31.1256C32.942 31.42 32.7148 31.7817 32.4615 32.1478C32.2116 32.5091 31.9513 32.8533 31.7521 33.1087C31.6529 33.236 31.5697 33.3401 31.5116 33.412C31.4826 33.448 31.4599 33.4758 31.4447 33.4944C31.4371 33.5037 31.4313 33.5107 31.4276 33.5152C31.4257 33.5175 31.4244 33.5191 31.4235 33.5201C31.4231 33.5206 31.4228 33.521 31.4227 33.5212C31.4226 33.5213 31.4226 33.5213 31.4226 33.5213C31.4225 33.5213 31.4226 33.5213 31.4226 33.5213C31.4226 33.5213 31.4226 33.5212 32 33.9999Z"
+              fill="#04535C"
+            />
+          </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-900 sm:text-lg">
+          And Much More...
+        </h4>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="inner-pages" class="overflow-hidden bg-gray-200 py-20 lg:py-25">
+  <div class="custom-container">
+    <div class="mb-16 max-w-3xl text-left">
+      <!-- Badge -->
+      <span
+        class="text-primary-main bg-success-light mb-10 inline-flex items-center gap-2 rounded-full px-5 py-1.5 text-sm font-normal"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <path
+            d="M8 1.5C8.27614 1.5 8.5 1.72386 8.5 2C8.5 3.33738 9.17373 4.71662 10.2286 5.77145C11.2834 6.82627 12.6626 7.5 14 7.5C14.2761 7.5 14.5 7.72386 14.5 8C14.5 8.27614 14.2761 8.5 14 8.5C12.6626 8.5 11.2834 9.17373 10.2286 10.2286C9.17373 11.2834 8.5 12.6626 8.5 14C8.5 14.2761 8.27614 14.5 8 14.5C7.72386 14.5 7.5 14.2761 7.5 14C7.5 12.6626 6.82627 11.2834 5.77145 10.2286C4.71662 9.17373 3.33738 8.5 2 8.5C1.72386 8.5 1.5 8.27614 1.5 8C1.5 7.72386 1.72386 7.5 2 7.5C3.33738 7.5 4.71662 6.82627 5.77145 5.77145C6.82627 4.71662 7.5 3.33738 7.5 2C7.5 1.72386 7.72386 1.5 8 1.5Z"
+            fill="#01494D"
+          />
+          <path
+            d="M2.99992 10.8335C3.27606 10.8335 3.49992 11.0574 3.49992 11.3335L3.50019 11.3346C3.50224 11.3446 3.51764 11.4202 3.60734 11.5651C3.69587 11.7081 3.82613 11.8693 3.97847 12.0216C4.13082 12.174 4.29197 12.3042 4.43497 12.3927C4.57987 12.4824 4.65547 12.4978 4.66552 12.4999L4.66659 12.5002C4.94273 12.5002 5.16659 12.724 5.16659 13.0002C5.16659 13.2763 4.94273 13.5002 4.66659 13.5002L4.66552 13.5004C4.65547 13.5025 4.57987 13.5179 4.43497 13.6076C4.29197 13.6961 4.13082 13.8264 3.97847 13.9787C3.82613 14.1311 3.69587 14.2922 3.60734 14.4352C3.51764 14.5801 3.50224 14.6557 3.50019 14.6658L3.49992 14.6668C3.49992 14.943 3.27606 15.1668 2.99992 15.1668C2.72378 15.1668 2.49992 14.943 2.49992 14.6668L2.49964 14.6658C2.4976 14.6557 2.48219 14.5801 2.39249 14.4352C2.30397 14.2922 2.17371 14.1311 2.02137 13.9787C1.86902 13.8264 1.70787 13.6961 1.56487 13.6076C1.41997 13.5179 1.34436 13.5025 1.33431 13.5004L1.33325 13.5002C1.05711 13.5002 0.833252 13.2763 0.833252 13.0002C0.833252 12.724 1.05711 12.5002 1.33325 12.5002L1.33431 12.4999C1.34436 12.4978 1.41997 12.4824 1.56487 12.3927C1.70787 12.3042 1.86902 12.174 2.02137 12.0216C2.17371 11.8693 2.30397 11.7081 2.39249 11.5651C2.48219 11.4202 2.4976 11.3446 2.49964 11.3346L2.49992 11.3335C2.49992 11.0574 2.72378 10.8335 2.99992 10.8335Z"
+            fill="#01494D"
+          />
+          <path
+            d="M12.9999 0.833496C13.2761 0.833496 13.4999 1.05735 13.4999 1.3335L13.5002 1.33456C13.5022 1.34461 13.5176 1.42021 13.6073 1.56511C13.6959 1.70811 13.8261 1.86926 13.9785 2.02161C14.1308 2.17396 14.292 2.30421 14.435 2.39274C14.5799 2.48244 14.6555 2.49784 14.6655 2.49989L14.6666 2.50016C14.9427 2.50016 15.1666 2.72402 15.1666 3.00016C15.1666 3.27631 14.9427 3.50016 14.6666 3.50016L14.6655 3.50044C14.6555 3.50249 14.5799 3.51789 14.435 3.60759C14.292 3.69611 14.1308 3.82637 13.9785 3.97872C13.8261 4.13106 13.6959 4.29221 13.6073 4.43521C13.5176 4.58012 13.5022 4.65572 13.5002 4.66577L13.4999 4.66683C13.4999 4.94297 13.2761 5.16683 12.9999 5.16683C12.7238 5.16683 12.4999 4.94297 12.4999 4.66683L12.4996 4.66577C12.4976 4.65572 12.4822 4.58012 12.3925 4.43521C12.304 4.29221 12.1737 4.13106 12.0214 3.97872C11.869 3.82637 11.7079 3.69611 11.5649 3.60759C11.42 3.51789 11.3444 3.50249 11.3343 3.50044L11.3333 3.50016C11.0571 3.50016 10.8333 3.27631 10.8333 3.00016C10.8333 2.72402 11.0571 2.50016 11.3333 2.50016L11.3343 2.49989C11.3444 2.49784 11.42 2.48244 11.5649 2.39274C11.7079 2.30421 11.869 2.17396 12.0214 2.02161C12.1737 1.86926 12.304 1.70811 12.3925 1.56511C12.4822 1.42021 12.4976 1.34461 12.4996 1.33456L12.4999 1.3335C12.4999 1.05735 12.7238 0.833496 12.9999 0.833496Z"
+            fill="#01494D"
+          />
+        </svg>
+        Page Library
+      </span>
+
+      <!-- Heading -->
+      <h2 class="text-gray-primary mb-3 text-4xl font-bold md:text-5xl">
+        Pages That Tell <span class="text-primary-main">Your Story</span>
+      </h2>
+
+      <!-- Description -->
+      <p
+        class="text-gray-secondary max-w-2xl text-lg leading-relaxed font-medium"
+      >
+        Explore shop layouts, carts, checkout, customer accounts, vendor dashboards and more.
+      </p>
+    </div>
+  </div>
+
+  <!-- Marquee Area -->
+  <div class="relative mx-auto">
+    <!-- Fade Edges (Optional but premium) -->
+    <div
+      class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#FAFAFA] to-transparent"
+    ></div>
+    <div
+      class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#FAFAFA] to-transparent"
+    ></div>
+
+    <!-- Row 1 -->
+    <div class="flex overflow-hidden">
+      <div
+        class="animate-marquee pause-on-hover flex min-w-full shrink-0 gap-5 py-4 pl-8"
+      >
+        <!-- Original set -->
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/about"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-1.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/contact"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-2.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/faq"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-3.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/cart-single-vendor"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-4.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/cart-multi-vendor"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-5.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+
+        <!-- Duplicated set for seamless loop -->
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/about"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-1.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/contact"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-2.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/faq"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-3.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/cart-single-vendor"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-4.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/cart-multi-vendor"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-5.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="mt-[60px] flex overflow-hidden">
+      <div
+        class="animate-marquee-reverse pause-on-hover flex min-w-full shrink-0 gap-8 py-4 pl-8"
+      >
+        <!-- Original set -->
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/checkout-1"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-6.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/order-success"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-7.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/wishlist"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-8.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/vendor-dashboard"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-9.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/vendor-profile"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-10.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+
+        <!-- Duplicated set for seamless loop -->
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/checkout-1"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-6.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/order-success"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-7.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/wishlist"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-8.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/vendor-dashboard"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-9.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://storly-nextjs.vercel.app/vendor-profile"
+          class="block h-[350px] w-[450px] shrink-0 overflow-hidden rounded-2xl border border-gray-300 p-3 transition-transform"
+        >
+          <img
+            src="images/storly/inner-10.webp"
+            class="w-full rounded-xl"
+            alt="Inner Page"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="faq" class="py-20 lg:py-25">
+  <div class="custom-container">
+    <div class="mx-auto max-w-3xl text-center">
+      <!-- Badge -->
+      <span
+        class="text-primary-main bg-success-light mb-10 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <path
+            d="M8 1.5C8.27614 1.5 8.5 1.72386 8.5 2C8.5 3.33738 9.17373 4.71662 10.2286 5.77145C11.2834 6.82627 12.6626 7.5 14 7.5C14.2761 7.5 14.5 7.72386 14.5 8C14.5 8.27614 14.2761 8.5 14 8.5C12.6626 8.5 11.2834 9.17373 10.2286 10.2286C9.17373 11.2834 8.5 12.6626 8.5 14C8.5 14.2761 8.27614 14.5 8 14.5C7.72386 14.5 7.5 14.2761 7.5 14C7.5 12.6626 6.82627 11.2834 5.77145 10.2286C4.71662 9.17373 3.33738 8.5 2 8.5C1.72386 8.5 1.5 8.27614 1.5 8C1.5 7.72386 1.72386 7.5 2 7.5C3.33738 7.5 4.71662 6.82627 5.77145 5.77145C6.82627 4.71662 7.5 3.33738 7.5 2C7.5 1.72386 7.72386 1.5 8 1.5Z"
+            fill="#01494D"
+          />
+          <path
+            d="M2.99992 10.833C3.27606 10.833 3.49992 11.0569 3.49992 11.333L3.50019 11.3341C3.50224 11.3441 3.51764 11.4197 3.60734 11.5646C3.69587 11.7076 3.82613 11.8688 3.97847 12.0211C4.13082 12.1735 4.29197 12.3037 4.43497 12.3923C4.57987 12.482 4.65547 12.4974 4.66552 12.4994L4.66659 12.4997C4.94273 12.4997 5.16659 12.7235 5.16659 12.9997C5.16659 13.2758 4.94273 13.4997 4.66659 13.4997L4.66552 13.4999C4.65547 13.502 4.57987 13.5174 4.43497 13.6071C4.29197 13.6956 4.13082 13.8259 3.97847 13.9782C3.82613 14.1306 3.69587 14.2917 3.60734 14.4347C3.51764 14.5796 3.50224 14.6552 3.50019 14.6653L3.49992 14.6663C3.49992 14.9425 3.27606 15.1663 2.99992 15.1663C2.72378 15.1663 2.49992 14.9425 2.49992 14.6663L2.49964 14.6653C2.4976 14.6552 2.48219 14.5796 2.39249 14.4347C2.30397 14.2917 2.17371 14.1306 2.02137 13.9782C1.86902 13.8259 1.70787 13.6956 1.56487 13.6071C1.41997 13.5174 1.34436 13.502 1.33431 13.4999L1.33325 13.4997C1.05711 13.4997 0.833252 13.2758 0.833252 12.9997C0.833252 12.7235 1.05711 12.4997 1.33325 12.4997L1.33431 12.4994C1.34436 12.4974 1.41997 12.482 1.56487 12.3923C1.70787 12.3037 1.86902 12.1735 2.02137 12.0211C2.17371 11.8688 2.30397 11.7076 2.39249 11.5646C2.48219 11.4197 2.4976 11.3441 2.49964 11.3341L2.49992 11.333C2.49992 11.0569 2.72378 10.833 2.99992 10.833Z"
+            fill="#01494D"
+          />
+          <path
+            d="M12.9999 0.833008C13.2761 0.833008 13.4999 1.05687 13.4999 1.33301L13.5002 1.33407C13.5022 1.34412 13.5176 1.41972 13.6073 1.56462C13.6959 1.70763 13.8261 1.86877 13.9785 2.02112C14.1308 2.17347 14.292 2.30372 14.435 2.39225C14.5799 2.48195 14.6555 2.49735 14.6655 2.4994L14.6666 2.49967C14.9427 2.49967 15.1666 2.72353 15.1666 2.99967C15.1666 3.27582 14.9427 3.49967 14.6666 3.49967L14.6655 3.49995C14.6555 3.502 14.5799 3.5174 14.435 3.6071C14.292 3.69562 14.1308 3.82588 13.9785 3.97823C13.8261 4.13057 13.6959 4.29172 13.6073 4.43473C13.5176 4.57963 13.5022 4.65523 13.5002 4.66528L13.4999 4.66634C13.4999 4.94248 13.2761 5.16634 12.9999 5.16634C12.7238 5.16634 12.4999 4.94248 12.4999 4.66634L12.4996 4.66528C12.4976 4.65523 12.4822 4.57963 12.3925 4.43473C12.304 4.29172 12.1737 4.13057 12.0214 3.97823C11.869 3.82588 11.7079 3.69562 11.5649 3.6071C11.42 3.5174 11.3444 3.502 11.3343 3.49995L11.3333 3.49967C11.0571 3.49967 10.8333 3.27582 10.8333 2.99967C10.8333 2.72353 11.0571 2.49967 11.3333 2.49967L11.3343 2.4994C11.3444 2.49735 11.42 2.48195 11.5649 2.39225C11.7079 2.30372 11.869 2.17347 12.0214 2.02112C12.1737 1.86877 12.304 1.70763 12.3925 1.56462C12.4822 1.41972 12.4976 1.34412 12.4996 1.33407L12.4999 1.33301C12.4999 1.05687 12.7238 0.833008 12.9999 0.833008Z"
+            fill="#01494D"
+          />
+        </svg>
+        FAQ
+      </span>
+
+      <!-- Heading -->
+      <h2 class="text-primary-main mb-6 text-4xl font-bold md:text-5xl">
+        Questions About Storly?
+      </h2>
+
+      <!-- Description -->
+      <p class="text-gray-secondary mx-auto max-w-3xl text-lg leading-relaxed">
+        A few practical details about customizing and deploying the Storly Vue.js template.
+      </p>
+    </div>
+
+    <!-- Accordion List -->
+    <div
+      class="mx-auto mt-14 max-w-6xl space-y-4"
+      x-data="{ activeAccordion: 1 }"
+    >
+      <!-- Item 1 -->
+      <div
+        class="overflow-hidden rounded-2xl border transition-colors duration-300"
+        :class="activeAccordion === 1 ? 'border-primary-main bg-primary-main' : 'border-gray-300 bg-white'"
+      >
+        <button
+          @click="activeAccordion = activeAccordion === 1 ? null : 1"
+          class="flex w-full items-center justify-between p-8 text-left focus:outline-none"
+        >
+          <span
+            class="text-lg font-bold transition-colors duration-300 sm:text-2xl"
+            :class="activeAccordion === 1 ? 'text-success-light' : 'text-gray-900'"
+          >
+            01. Who Is Storly Designed For?
+          </span>
+          <span
+            class="ml-4 flex shrink-0 items-center justify-center transition-colors duration-300"
+            :class="activeAccordion === 1 ? 'text-white' : 'text-gray-900'"
+          >
+            <svg
+              class="h-5 w-5 transform transition-transform duration-300"
+              :class="activeAccordion === 1 ? 'rotate-180' : ''"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </span>
+        </button>
+        <div x-show="activeAccordion === 1" x-collapse>
+          <div class="px-8 pb-8 text-base leading-relaxed text-white/80">
+            Storly suits grocery, bakery, fashion, electronics, beauty and other online stores, as well as multi-vendor marketplace projects.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div
+        class="overflow-hidden rounded-2xl border transition-colors duration-300"
+        :class="activeAccordion === 2 ? 'border-primary-main bg-primary-main' : 'border-gray-300 bg-white'"
+      >
+        <button
+          @click="activeAccordion = activeAccordion === 2 ? null : 2"
+          class="flex w-full items-center justify-between p-8 text-left focus:outline-none"
+        >
+          <span
+            class="text-lg font-bold transition-colors duration-300 sm:text-2xl"
+            :class="activeAccordion === 2 ? 'text-success-light' : 'text-gray-900'"
+          >
+            02. Is This a Vue.js Template?
+          </span>
+          <span
+            class="ml-4 flex shrink-0 items-center justify-center transition-colors duration-300"
+            :class="activeAccordion === 2 ? 'text-white' : 'text-gray-900'"
+          >
+            <svg
+              class="h-5 w-5 transform transition-transform duration-300"
+              :class="activeAccordion === 2 ? 'rotate-180' : ''"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </span>
+        </button>
+        <div x-show="activeAccordion === 2" x-collapse style="display: none">
+          <div class="px-8 pb-8 text-base leading-relaxed text-white/80">
+            Yes. Storly is a multipurpose eCommerce template built for Vue.js, with Tailwind CSS styling and interactive storefront layouts.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div
+        class="overflow-hidden rounded-2xl border transition-colors duration-300"
+        :class="activeAccordion === 3 ? 'border-primary-main bg-primary-main' : 'border-gray-300 bg-white'"
+      >
+        <button
+          @click="activeAccordion = activeAccordion === 3 ? null : 3"
+          class="flex w-full items-center justify-between p-8 text-left focus:outline-none"
+        >
+          <span
+            class="text-lg font-bold transition-colors duration-300 sm:text-2xl"
+            :class="activeAccordion === 3 ? 'text-success-light' : 'text-gray-900'"
+          >
+            03. Can I Customize the Content and Language?
+          </span>
+          <span
+            class="ml-4 flex shrink-0 items-center justify-center transition-colors duration-300"
+            :class="activeAccordion === 3 ? 'text-white' : 'text-gray-900'"
+          >
+            <svg
+              class="h-5 w-5 transform transition-transform duration-300"
+              :class="activeAccordion === 3 ? 'rotate-180' : ''"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </span>
+        </button>
+        <div x-show="activeAccordion === 3" x-collapse style="display: none">
+          <div class="px-8 pb-8 text-base leading-relaxed text-white/80">
+            Edit the page components and adjust colors, typography and spacing with Tailwind utility classes. Add your product content and translated text as needed.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div
+        class="overflow-hidden rounded-2xl border transition-colors duration-300"
+        :class="activeAccordion === 4 ? 'border-primary-main bg-primary-main' : 'border-gray-300 bg-white'"
+      >
+        <button
+          @click="activeAccordion = activeAccordion === 4 ? null : 4"
+          class="flex w-full items-center justify-between p-8 text-left focus:outline-none"
+        >
+          <span
+            class="text-lg font-bold transition-colors duration-300 sm:text-2xl"
+            :class="activeAccordion === 4 ? 'text-success-light' : 'text-gray-900'"
+          >
+            04. How Do I Deploy a Vue.js Website?
+          </span>
+          <span
+            class="ml-4 flex shrink-0 items-center justify-center transition-colors duration-300"
+            :class="activeAccordion === 4 ? 'text-white' : 'text-gray-900'"
+          >
+            <svg
+              class="h-5 w-5 transform transition-transform duration-300"
+              :class="activeAccordion === 4 ? 'rotate-180' : ''"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </span>
+        </button>
+        <div x-show="activeAccordion === 4" x-collapse style="display: none">
+          <div class="px-8 pb-8 text-base leading-relaxed text-white/80">
+            Install the template dependencies, customize the project and run its production build. Deploy the Vue.js application to a compatible hosting platform such as Vercel.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div
+        class="overflow-hidden rounded-2xl border transition-colors duration-300"
+        :class="activeAccordion === 5 ? 'border-primary-main bg-primary-main' : 'border-gray-300 bg-white'"
+      >
+        <button
+          @click="activeAccordion = activeAccordion === 5 ? null : 5"
+          class="flex w-full items-center justify-between p-8 text-left focus:outline-none"
+        >
+          <span
+            class="text-lg font-bold transition-colors duration-300 sm:text-2xl"
+            :class="activeAccordion === 5 ? 'text-success-light' : 'text-gray-900'"
+          >
+            05. Does the Template Include a Backend?
+          </span>
+          <span
+            class="ml-4 flex shrink-0 items-center justify-center transition-colors duration-300"
+            :class="activeAccordion === 5 ? 'text-white' : 'text-gray-900'"
+          >
+            <svg
+              class="h-5 w-5 transform transition-transform duration-300"
+              :class="activeAccordion === 5 ? 'rotate-180' : ''"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </span>
+        </button>
+        <div x-show="activeAccordion === 5" x-collapse style="display: none">
+          <div class="px-8 pb-8 text-base leading-relaxed text-white/80">
+            This is a front-end template. Processing enquiries, managing accounts or storing data requires a separate backend or a suitable third-party service.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section
+  class="relative overflow-hidden pt-10 pb-20 sm:pt-20 lg:pb-50"
+  style="
+    background: radial-gradient(ellipse at 50% 20%, #075d60 0%, #01494d 45%, #00333f 100%);
+  "
+>
+  <div class="custom-container relative z-10">
+    <div class="mx-auto flex max-w-3xl flex-col items-center text-center">
+      
+      <!-- Price -->
+      <div class="mb-6">
+        <span
+          class="bg-[linear-gradient(180deg,#AAF27F_40%,#FFF_95.67%)] bg-clip-text text-5xl font-extrabold text-transparent sm:text-[90px]"
+        >
+          Vue.js
+        </span>
+      </div>
+
+      <!-- Heading -->
+      <h2
+        class="mb-4 text-3xl leading-tight font-bold text-white sm:text-4xl lg:text-5xl"
+      >
+        Launch Your Next Online Store With <br class="hidden sm:block" />
+        Storly Vue.js.
+      </h2>
+
+      <!-- Description -->
+      <p class="mb-8 max-w-2xl text-base text-white/80 sm:text-lg">
+        Build a polished shopping experience with adaptable storefronts, product pages and supporting eCommerce layouts.
+      </p>
+
+      <!-- CTA Button -->
+    <a
+          href="https://themeforest.net/user/createuiux"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary-main bg-success-light inline-flex items-center justify-center rounded-lg px-5 py-3 text-base font-medium"
+        >
+        Get in Touch
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+        >
+          <path
+            d="M15.5833 6.41675L5.5 16.5001"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <path
+            d="M10.0834 5.49997H15.8334C16.1476 5.49997 16.3048 5.49997 16.4024 5.5976C16.5 5.69523 16.5 5.85237 16.5 6.16664V11.9166"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+<script defer src="bundle.js"></script><script defer src="scroll-motion.js"></script><script defer src="hero-motion.js"></script></body>
+</html>

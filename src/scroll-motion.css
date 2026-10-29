@@ -1,0 +1,33 @@
+/* Scroll choreography: progressive enhancement, with native scrolling. */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 110px; }
+.storly-scroll-progress { position:fixed; inset:0 0 auto; height:3px; z-index:9999; background:linear-gradient(90deg,#01494d,#aaf27f); transform:scaleX(0); transform-origin:left; pointer-events:none; }
+.motion-pending { opacity:0; translate:0 46px; }
+article { transition:box-shadow .35s ease, border-color .35s ease; }
+article:hover { box-shadow:0 24px 50px -24px #01494d65; border-color:#6dbd86; }
+article > a { display:block; overflow:hidden; border-radius:8px; }
+article > a img { transition:scale .75s cubic-bezier(.2,.65,.2,1); }
+article:hover > a img { scale:1.025; }
+#demo > .custom-container { translate:0 var(--hero-shift,0px); }
+header { transition:box-shadow .3s ease; }
+header.motion-scrolled { box-shadow:0 8px 30px #003e4812; }
+a:focus-visible,button:focus-visible { outline:3px solid #78bf57; outline-offset:5px; }
+@media (max-width:767px) { .motion-pending { translate:0 24px; } #demo > .custom-container { translate:none; } }
+@media (prefers-reduced-motion:reduce) {
+ html { scroll-behavior:auto; }
+ .motion-pending { opacity:1; translate:none; }
+ #demo > .custom-container { translate:none; }
+ article,article > a img,header { transition:none; }
+ [class*="animate-marquee"] { animation-play-state:paused!important; }
+}
+@media print { .motion-pending { opacity:1; translate:none; } .storly-scroll-progress { display:none; } }
+
+.storly-wordmark{display:flex;align-items:center;height:100%;font-size:clamp(30px,3.5vw,48px);font-weight:800;letter-spacing:-2px;color:#01494d}.storly-wordmark>span{color:#78bf57}
+/* Simple, flat screenshot previews. */
+article{padding:0!important;border:1px solid #e4e8e7!important;border-radius:12px!important;background:#fff;overflow:hidden}
+article>a{border-radius:0!important;aspect-ratio:1 / 1.15;overflow:hidden;display:block}
+article>a img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:top!important;border-radius:0!important}
+article h3{margin:0!important;padding:20px!important;border-top:1px solid #e4e8e7;font-size:22px!important}
+article:hover>a img{scale:1!important}
+.animate-marquee>a,.animate-marquee-reverse>a{padding:0!important;box-shadow:none!important;border-radius:10px!important;background:#fff;}
+.animate-marquee>a img,.animate-marquee-reverse>a img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:top!important;border-radius:0!important;}
